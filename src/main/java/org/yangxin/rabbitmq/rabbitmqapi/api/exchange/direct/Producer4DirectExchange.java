@@ -26,5 +26,8 @@ public class Producer4DirectExchange {
         // 发送
         String msg = "Hello RabbitMQ for Direct Exchange Message.";
         channel.basicPublish(exchangeName, routingKey, null, msg.getBytes());
+
+        channel.close();
+        connection.close();
     }
 }
