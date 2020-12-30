@@ -2,12 +2,11 @@ package org.yangxin.rabbitmq.rabbitmqapi.quickstart;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
-import static org.yangxin.rabbitmq.rabbitmqapi.utils.ConnectionUtil.getConnection;
+import static org.yangxin.rabbitmq.rabbitmqapi.util.ConnectionUtil.getConnection;
 
 /**
  * @author yangxin

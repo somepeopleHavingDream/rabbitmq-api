@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
-import static org.yangxin.rabbitmq.rabbitmqapi.utils.ConnectionUtil.getConnection;
+import static org.yangxin.rabbitmq.rabbitmqapi.util.ConnectionUtil.getConnection;
 
 /**
  * @author yangxin

@@ -1,4 +1,4 @@
-package org.yangxin.rabbitmq.rabbitmqapi.utils;
+package org.yangxin.rabbitmq.rabbitmqapi.util;
 
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
@@ -13,15 +13,17 @@ import java.util.concurrent.TimeoutException;
 public class ConnectionUtil {
 
     public static Connection getConnection() throws IOException, TimeoutException {
-        // 1. 创建一个ConnectionFactory，并进行配置
+        // 创建一个ConnectionFactory，并进行配置
         ConnectionFactory connectionFactory = new ConnectionFactory();
         connectionFactory.setHost("192.168.3.3");
         connectionFactory.setPort(5672);
         connectionFactory.setVirtualHost("/");
+        connectionFactory.setAutomaticRecoveryEnabled(true);
+        connectionFactory.setNetworkRecoveryInterval(3000);
         connectionFactory.setUsername("admin");
         connectionFactory.setPassword("123456");
 
-        // 2. 通过连接工厂创建连接
+        // 通过连接工厂创建连接
         return connectionFactory.newConnection();
     }
 }
