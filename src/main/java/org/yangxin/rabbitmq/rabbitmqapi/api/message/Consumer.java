@@ -1,9 +1,12 @@
-package org.yangxin.rabbitmq.rabbitmqapi.quickstart;
+package org.yangxin.rabbitmq.rabbitmqapi.api.message;
 
 import com.rabbitmq.client.*;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.util.CollectionUtils;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Map;
 import java.util.concurrent.TimeoutException;
 
 import static org.yangxin.rabbitmq.rabbitmqapi.util.ConnectionUtil.getConnection;
@@ -35,6 +38,11 @@ public class Consumer {
                                        byte[] body) {
                 String msg = new String(body);
                 log.info("消费端：[{}]", msg);
+
+                Map<String, Object> headerMap = properties.getHeaders();
+                if (!CollectionUtils.isEmpty(headerMap)) {
+                    log.info("my1: [{}}, my2: [{}]", headerMap.get("my1"), headerMap.get("my2"));
+                }
             }
         });
     }
