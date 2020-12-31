@@ -1,4 +1,4 @@
-package org.yangxin.rabbitmq.rabbitmqapi.api.confirm;
+package org.yangxin.rabbitmq.rabbitmqapi.api.confirmlistener;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.ConfirmListener;
