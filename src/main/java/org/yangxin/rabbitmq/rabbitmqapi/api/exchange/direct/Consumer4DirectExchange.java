@@ -11,6 +11,7 @@ import java.util.concurrent.TimeoutException;
  * @author yangxin
  * 12/30/20 5:22 PM
  */
+@SuppressWarnings("DuplicatedCode")
 @Slf4j
 public class Consumer4DirectExchange {
 
