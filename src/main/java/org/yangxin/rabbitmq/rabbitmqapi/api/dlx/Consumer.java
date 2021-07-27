@@ -2,7 +2,6 @@ package org.yangxin.rabbitmq.rabbitmqapi.api.dlx;
 
 import com.rabbitmq.client.*;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.util.CollectionUtils;
 import org.yangxin.rabbitmq.rabbitmqapi.util.ConnectionUtil;
 
 import java.io.IOException;
@@ -29,7 +28,7 @@ public class Consumer {
 
         channel.exchangeDeclare(exchangeName, "topic", true, false, null);
 
-        Map<String, Object> argumentMap = new HashMap<>();
+        Map<String, Object> argumentMap = new HashMap<>(1);
         argumentMap.put("x-dead-letter-exchange", "dlx.exchange");
         // 这个arguments属性，要设置到声明队列上
         channel.queueDeclare(queueName, true, false, false, argumentMap);

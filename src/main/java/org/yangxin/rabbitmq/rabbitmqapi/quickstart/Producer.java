@@ -12,6 +12,7 @@ import static org.yangxin.rabbitmq.rabbitmqapi.util.ConnectionUtil.getConnection
  * @author yangxin
  * 12/30/20 3:20 PM
  */
+@SuppressWarnings("AlibabaUndefineMagicConstant")
 public class Producer {
 
     public static void main(String[] args) throws IOException, TimeoutException {

@@ -23,7 +23,7 @@ public class Producer {
         // 通过connection创建一个Channel
         Channel channel = connection.createChannel();
 
-        Map<String, Object> headerMap = new HashMap<>();
+        Map<String, Object> headerMap = new HashMap<>(2);
         headerMap.put("my1", "my1");
         headerMap.put("my2", "my2");
 

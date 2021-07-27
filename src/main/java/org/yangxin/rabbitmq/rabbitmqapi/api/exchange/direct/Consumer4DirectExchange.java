@@ -26,8 +26,12 @@ public class Consumer4DirectExchange {
         String routingKey = "test.direct";
 
         // 表示声明了一个交换机
-//        channel.exchangeDeclare(exchangeName, exchangeType, true);
-        channel.exchangeDeclare(exchangeName, exchangeType, true, false, false, null);
+        channel.exchangeDeclare(exchangeName,
+                exchangeType,
+                true,
+                false,
+                false,
+                null);
         // 表示声明了一个队列
         channel.queueDeclare(queueName, false, false, false, null);
         // 建立一个绑定关系
@@ -38,7 +42,10 @@ public class Consumer4DirectExchange {
         channel.basicConsume(queueName, true, new DefaultConsumer(channel) {
 
             @Override
-            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) {
+            public void handleDelivery(String consumerTag,
+                                       Envelope envelope,
+                                       AMQP.BasicProperties properties,
+                                       byte[] body) {
                 String msg = new String(body);
                 log.info("收到消息：[{}]", msg);
             }

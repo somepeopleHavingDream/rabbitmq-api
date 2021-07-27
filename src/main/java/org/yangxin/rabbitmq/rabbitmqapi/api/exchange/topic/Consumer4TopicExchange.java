@@ -11,6 +11,7 @@ import java.util.concurrent.TimeoutException;
  * @author yangxin
  * 12/30/20 6:57 PM
  */
+@SuppressWarnings("DuplicatedCode")
 @Slf4j
 public class Consumer4TopicExchange {
 
@@ -25,7 +26,12 @@ public class Consumer4TopicExchange {
         String routingKey = "user.*";
 
         // 声明交换机
-        channel.exchangeDeclare(exchangeName, exchangeType, true, false, false, null);
+        channel.exchangeDeclare(exchangeName,
+                exchangeType,
+                true,
+                false,
+                false,
+                null);
         // 声明队列
         channel.queueDeclare(queueName, false, false, false, null);
         // 建立交换机和队列的绑定关系
@@ -36,7 +42,10 @@ public class Consumer4TopicExchange {
         channel.basicConsume(queueName, true, new DefaultConsumer(channel) {
 
             @Override
-            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) {
+            public void handleDelivery(String consumerTag,
+                                       Envelope envelope,
+                                       AMQP.BasicProperties properties,
+                                       byte[] body) {
                 String msg = new String(body);
                 log.info("收到消息：[{}]", msg);
             }

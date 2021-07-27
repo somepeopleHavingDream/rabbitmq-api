@@ -14,6 +14,7 @@ import java.util.concurrent.TimeoutException;
  * @author yangxin
  * 12/31/20 9:08 PM
  */
+@SuppressWarnings("AlibabaUndefineMagicConstant")
 public class Producer {
 
     public static void main(String[] args) throws IOException, TimeoutException {

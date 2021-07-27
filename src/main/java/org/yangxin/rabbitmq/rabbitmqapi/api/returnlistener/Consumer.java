@@ -29,7 +29,10 @@ public class Consumer {
         channel.basicConsume(queueName, true, new DefaultConsumer(channel) {
 
             @Override
-            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) {
+            public void handleDelivery(String consumerTag,
+                                       Envelope envelope,
+                                       AMQP.BasicProperties properties,
+                                       byte[] body) {
                 String msg = new String(body);
                 log.info("消费者： [{}]", msg);
             }

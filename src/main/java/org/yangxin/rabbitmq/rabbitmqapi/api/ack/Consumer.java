@@ -13,6 +13,7 @@ import java.util.concurrent.TimeoutException;
  * @author yangxin
  * 12/31/20 9:12 PM
  */
+@SuppressWarnings("AlibabaUndefineMagicConstant")
 @Slf4j
 public class Consumer {
 
@@ -31,7 +32,10 @@ public class Consumer {
         channel.basicConsume(queueName, false, new DefaultConsumer(channel) {
 
             @Override
-            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+            public void handleDelivery(String consumerTag,
+                                       Envelope envelope,
+                                       AMQP.BasicProperties properties,
+                                       byte[] body) throws IOException {
                 String msg = new String(body);
                 log.info("消费者： [{}]", msg);
 

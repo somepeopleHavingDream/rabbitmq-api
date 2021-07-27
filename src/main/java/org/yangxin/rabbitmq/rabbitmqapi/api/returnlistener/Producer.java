@@ -1,9 +1,7 @@
 package org.yangxin.rabbitmq.rabbitmqapi.api.returnlistener;
 
-import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ReturnListener;
 import lombok.extern.slf4j.Slf4j;
 import org.yangxin.rabbitmq.rabbitmqapi.util.ConnectionUtil;
 
@@ -14,6 +12,7 @@ import java.util.concurrent.TimeoutException;
  * @author yangxin
  * 12/31/20 6:47 PM
  */
+@SuppressWarnings("AlibabaRemoveCommentedCode")
 @Slf4j
 public class Producer {
 
